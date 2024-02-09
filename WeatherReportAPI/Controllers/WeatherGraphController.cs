@@ -1,7 +1,5 @@
 ﻿
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -66,8 +64,8 @@ namespace WeatherReportAPI.Controllers
         
         private async Task<Dictionary<DateTime, Current>> FetchTemperatureData(string apiKey, string city, int days)
             {
-            try
-            {
+            
+            
                 var temperatureData = new Dictionary<DateTime, Current>();
 
                 using var httpClient = _httpClientFactory.CreateClient();
@@ -90,9 +88,6 @@ namespace WeatherReportAPI.Controllers
                 }
 
                 return temperatureData;
-            }catch (Exception ex)
-            { 
-            Console.WriteLine($"Subscribe {ex.Message}");
             }
         }
     }
